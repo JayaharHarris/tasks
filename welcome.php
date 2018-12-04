@@ -1,14 +1,25 @@
 <?php
 include 'header.php';
-?>
-         <div class="article-box">
-
-         	<div class="article"> 
-               <div class="add">
-   
-<a href="article.php" class="btn btn-default">Add Article</a>
+session_start();
+?>      <div class="col-sm-3" style="float: right;">
+   <a href="logout.php" class="btn btn-primary">Logout</a>
 
 </div>
+         <div class="article-box">
+<h2><?php
+   $s=$_SESSION['email'];
+   if ($s=="") {
+         header('location:index.php');
+      }  
+ echo ' Welcome ' . $_SESSION['email'] .'!';
+ ?></h2>
+         	<div class="article" class="col-sm-6"> 
+               <div class="add">
+   
+<a href="article.php" class="btn btn-primary">Add Article</a>
+
+</div>
+
  <?php
    include 'dbconnect.php';
    $table_name = mysqli_real_escape_string($link,'article');

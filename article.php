@@ -1,5 +1,15 @@
+      <div class="col-sm-3" style="float: right;">
+   <a href="logout.php" class="btn btn-primary">Logout</a>
+
+</div>
 <?php
+session_start();
 include 'header.php';
+include 'dbconnect.php';
+$s=$_SESSION['email'];
+   if ($s=="") {
+         header('location:index.php');
+      } 
 ?>
 <form name="form1" method="post" action="action.php">
    <div class="form-group">

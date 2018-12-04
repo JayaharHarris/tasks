@@ -1,8 +1,16 @@
+      <div class="col-sm-3" style="float: right;">
+   <a href="logout.php" class="btn btn-primary">Logout</a>
+
+</div>
 <?php
+session_start();
 include 'header.php';
-?>
-<?php
 include 'dbconnect.php';
+$s=$_SESSION['email'];
+   if ($s=="") {
+         header('location:index.php');
+      }  
+
 $table_name = mysqli_real_escape_string($link,'article');
 
 $id=mysqli_real_escape_string($link,$_GET['id']);
